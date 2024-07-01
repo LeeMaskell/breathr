@@ -1,0 +1,29 @@
+.main {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  min-height: 100vh;
+}
+
+ .resonantArc {
+  border: 2px solid black;
+  border-radius: 50%;
+ }
+
+ .animate-scale60{
+  animation: resonant 11s ease-in-out 60;
+}
+
+ @keyframes resonant{
+  0% {
+      transform: scale(1)
+  }
+  50% {
+      transform: scale(4)
+  }
+  100% {
+      transform: scale(1)
+  }
+}
