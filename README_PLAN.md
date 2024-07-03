@@ -33,5 +33,4 @@ https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame
 3/7/24
 - Style and form Modal correctly
 - Add Modal content
-- Add scroll up functionality to preset button in mobile view
 - Work out 'cards' and requirements for the next stage of development

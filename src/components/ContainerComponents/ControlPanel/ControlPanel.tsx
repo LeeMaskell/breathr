@@ -1,5 +1,5 @@
 "use client";
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import Button from "../Button/button";
 import {
   ControlPanelContainer,
@@ -28,6 +28,7 @@ const ResponsiveButtonContainer = styled.div`
   }
 `;
 
+
 export default function ControlPanel() {
   const {
     startAnimation,
@@ -44,6 +45,11 @@ export default function ControlPanel() {
 
   // Add interface/types for active
   const [active, setActive] = useState<"btn1" | "btn2">("btn1");
+  const [pageScroll, setPageScroll] = useState<boolean>(false);
+
+  useEffect(() => {
+    window.scrollTo(0, 0)
+  }, [pageScroll]);
 
   const setPresetAnimationParams = (
     startAnimation: boolean,
@@ -59,7 +65,7 @@ export default function ControlPanel() {
     } else {
       setTimeout(() => setStartAnimation(false), timeoutValue); // or !startAnimation?
     }
-    console.log(iterationCount + "2");
+    setPageScroll(!pageScroll);
   };
 
   const calculateaCustomIterationValue = (
