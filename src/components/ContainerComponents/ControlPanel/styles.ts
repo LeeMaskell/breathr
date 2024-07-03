@@ -19,7 +19,7 @@ export const ControlPanelContainer = styled.div`
 export const QuickStartPresets = styled.div<{$visible: boolean}>`
     border: 1px solid ${WHITE};
     width: 100%;
-    height: auto;
+    height: 72px;
     padding: 1.25rem;
     display: ${props => props.$visible ? "flex" : "none"};
     flex-direction: row;
@@ -28,13 +28,14 @@ export const QuickStartPresets = styled.div<{$visible: boolean}>`
 
     @media (max-width: 768px) {
         flex-direction: column;
+        height: auto;
     }
 `;
 
 export const CustomSettings = styled.div<{$visible: boolean}>`
     border: 1px solid #FFFFFF;
     width: 100%;
-    height: auto;
+    height: 72px;
     padding: 0.625rem;
     display: ${props => props.$visible ? "flex" : "none"};
     flex-direction: row;
@@ -45,6 +46,7 @@ export const CustomSettings = styled.div<{$visible: boolean}>`
     @media (max-width: 768px) {
         flex-direction: column;
         align-items: start;
+        height: auto;
     }
 `;
 
