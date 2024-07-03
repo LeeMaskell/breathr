@@ -13,25 +13,20 @@ const makeRateAString = (rate: number) => {
     return numericalValue.toString();
 }
 
-// check if 11 needs to be updated to use rate when custom settings are applied.
-// const calculateaIterationValue = (iterationCount: number) => {
-//     const numericalValue = (Number(iterationCount) * 60) / 11;
-//     return iterationCount ==  0 ? "infinite" : numericalValue.toString();
-    
-// };
-
 export const AnimationContainer = styled.div`
     width: 100%;
     display: flex;
     justify-content: center;
     align-items: center;
     position: relative;
+    
+    
 `;
 
-export const AnimationShape = styled.div<{$startAnimation: boolean, $animationIterationCount: number, $animationRate: number}>`
+export const AnimationShape = styled.div<{$startAnimation: boolean, $animationIterationCount: number | string, $animationRate: number}>`
     background: radial-gradient(circle, rgba(242,242,242,1) 0%, rgba(29,237,240,1) 50%);
-    height: 100px;
-    width: 100px;
+    height: 6.25rem;
+    width: 6.25rem;
     border: 2px solid #FFFFFF;
     border-radius: 50%;
     animation-name: ${props => (props.$startAnimation ? breatheAnimation : null)};
@@ -40,13 +35,23 @@ export const AnimationShape = styled.div<{$startAnimation: boolean, $animationIt
     animation-iteration-count: ${props => (props.$animationIterationCount.toString())};
     position: relative;
     z-index: 10;
+
+    @media (max-width: 480px) {
+        width: 4.688rem;
+        height: 4.688rem;
+    }
 `;
 
 export const AnimationLimit = styled.div`
-    height: 400px;
-    width: 400px;
+    height: 25rem;
+    width: 25rem;
     border: 1px dashed #FFFFFF;
     border-radius: 50%;
     position: absolute;
     z-index: 10;
+
+    @media (max-width: 480px) {
+        width: 18.75rem;
+        height: 18.75rem;
+    }
 `;

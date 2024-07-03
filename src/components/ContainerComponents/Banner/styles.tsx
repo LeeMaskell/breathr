@@ -7,7 +7,7 @@ export const BannerContainer = styled.div`
     z-index: 10;
     background-color: hotpink;
     width: 100%;
-    height: 100px;
+    height: 6.25rem;
     margin: 0;
     padding: 0;
 `;

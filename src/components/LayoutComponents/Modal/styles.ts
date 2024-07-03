@@ -14,7 +14,7 @@ export const ModalContent = styled.div`
     position: absolute;
     top: 20%;
     left: 30%;
-    width: 200px;
-    height: 200px;
+    width: 12.5rem;
+    height: 12.5rem;
     z-index: 20;
 `;

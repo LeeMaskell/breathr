@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 
-export const ToggleButtonContainer = styled.div`
+export const ButtonGroupContainer = styled.div`
     display: flex;
     flex-direction: row;
     align-items: end;
@@ -9,11 +9,10 @@ export const ToggleButtonContainer = styled.div`
     width: auto;
 `;
 
-// replace any with button type
 export default function ButtonGroup({children}: {children: any}) {
   return (
-    <ToggleButtonContainer>
+    <ButtonGroupContainer>
       {children}
-    </ToggleButtonContainer>
+    </ButtonGroupContainer>
   );
 }

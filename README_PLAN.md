@@ -20,14 +20,7 @@ Refer to the advanced React course for best practice.
 - responsive sizing
 - consistency of CSS
 - consistency of imports
-
-BUGS!!!
-- Duration set from input doesn't translate to minutes since I changed removed the calculate duration function.
-- Custom settings doesn't switch to !startAnimation when it finishes.
-
-- add to github
-- apply styling
-- create "Amnbient Breathing" component with animated gradients
+- create "Ambient Breathing" component with animated gradients
 
 
 // cookies consent/authorization to record user data = sets cookie if approved so that consent doesn't show again.
@@ -37,3 +30,10 @@ BUGS!!!
 https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts
 https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame
 
+3/7/24
+- Dynamically create quickstart buttons
+- Test
+- Style and form Modal correctly
+- Add Modal content
+- Add scroll up functionality to preset button in mobile view
+- Work out 'cards' and requirements for the next stage of development

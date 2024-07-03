@@ -1,11 +1,7 @@
 import React from 'react';
 import { BannerContainer } from './styles';
 
-// interface IBanner {
-//   setShowUserConsentBanner: boolean;
-// }
-
-export default function Banner({setShowUserConsentBanner}: {setShowUserConsentBanner: any}) {
+export default function Banner({setShowUserConsentBanner}: {setShowUserConsentBanner: (arg0: boolean) => void;}) {
     const acceptTrackingConsent = () => {
       setShowUserConsentBanner(false);
       return document.cookie = "breathr=true; expires=Fri, 31 Dec 9999 23:59:59 GMT; SameSite=None; Secure";

@@ -3,16 +3,16 @@ import React, { createContext, useState, useContext } from "react";
 interface IContextState {
   startAnimation: boolean;
   setStartAnimation: (arg0: boolean) => void;
-  animationIterationCount: number;
-  setAnimationIterationCount: any;
+  animationIterationCount: number | string;
+  setAnimationIterationCount: (x: number | string) => void;
   animationRate: number;
-  setAnimationRate: any; // fix
+  setAnimationRate: (n: number) => void;
   showDefaultPresetSettings: boolean;
   setShowDefaultPresetSettings: (arg0: boolean) => void;
   customIterationCount: number;
-  setCustomIterationCount: any; // fix
+  setCustomIterationCount: (n: number) => void;
   guideText: string;
-  setGuideText: any; // fix
+  setGuideText: (s: string) => void;
   openModal: boolean;
   setOpenModal: (arg0: boolean) => void;
 }

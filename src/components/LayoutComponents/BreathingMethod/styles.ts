@@ -2,18 +2,17 @@ import styled from "styled-components";
 
 export const BreathingMethodContainer = styled.div`
     width: 100%;
-    height: 100vh;
     display: flex;
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 20px;
-    margin-top: 20px;
+    gap: 1.25rem;
+    margin: 1.25rem 0 1.875rem 0;
 `;
 
 export const AnimationContainer = styled.div`
-    width: 400px;
-    height: 400px;
+    width: 25rem;
+    height: 25rem;
     display: flex;
     flex-direction: row;
     justify-content: center;

@@ -7,7 +7,6 @@ import StateContextWrapper, { useStateContext } from "../library/context";
 import ControlPanel from "@/components/ContainerComponents/ControlPanel/ControlPanel";
 import GuideText from "@/components/ContainerComponents/GuideText/GuideText";
 import styled from "styled-components";
-import { DARK_GREEN } from "../library/constants";
 
 const Main = styled.div`
   background: linear-gradient(
@@ -19,7 +18,7 @@ const Main = styled.div`
   flex-direction: row;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  gap: 1.25rem;
   min-height: 100vh;
 `;
 

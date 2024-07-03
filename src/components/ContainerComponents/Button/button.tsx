@@ -4,15 +4,14 @@ import { DefaultButton, ToggleButton } from "./styles";
 interface IButton {
   text: string;
   secondaryText?: string;
-  onClick: any;
+  onClick: React.MouseEventHandler<HTMLButtonElement>;
   disabled?: boolean;
   variant: string;
   size?: string;
   active?: boolean;
 }
 
-// add variant and size props
-
+// may need secondary button in the future
 export default function Button({
   text,
   onClick,
@@ -24,7 +23,7 @@ export default function Button({
   return (
     <>
       {variant == "primary" || variant == "secondary" ? (
-        <DefaultButton disabled={disabled} onClick={onClick} classname={variant}>
+        <DefaultButton disabled={disabled} onClick={onClick} className={variant}>
           {text}
         </DefaultButton>
       ) : (

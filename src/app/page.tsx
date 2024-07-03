@@ -1,6 +1,5 @@
 "use client";
 import { useLayoutEffect, useState } from "react";
-// import styles from "./page.module.css";
 import { Main } from "./styles";
 import Link from "next/link";
 import Banner from "@/components/ContainerComponents/Banner/Banner";

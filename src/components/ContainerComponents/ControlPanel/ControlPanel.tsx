@@ -7,6 +7,7 @@ import {
   CustomSettings,
   SettingContainer,
   Inputs,
+  Label,
   Information,
 } from "./styles";
 import { useStateContext } from "@/app/library/context";
@@ -17,6 +18,15 @@ import {
 } from "../../../app/library/constants";
 import ButtonGroup from "@/components/LayoutComponents/ButtonGroup/ButtonGroup";
 import { BsFillInfoCircleFill } from "react-icons/bs";
+import styled from "styled-components";
+
+const ResponsiveButtonContainer = styled.div`
+  width: 8.125rem;
+
+  @media (max-width: 768px) {
+    width: 100%;
+  }
+`;
 
 export default function ControlPanel() {
   const {
@@ -35,41 +45,46 @@ export default function ControlPanel() {
   // Add interface/types for active
   const [active, setActive] = useState<"btn1" | "btn2">("btn1");
 
-  // const calculateTotalDuration = (iterationCount: number, rate: number) => {
-  //   return (iterationCount * 2) * rate
-  // };
-
   const setPresetAnimationParams = (
     startAnimation: boolean,
+    iterationCount: any, // fix
+    rate: number
+  ) => {
+    const timeoutValue = rate * 2 * iterationCount * 1000;
+    setStartAnimation(startAnimation);
+    setAnimationIterationCount(iterationCount);
+    console.log(iterationCount + "1");
+    setAnimationRate(rate);
+    if (iterationCount === "infinite") {
+      return;
+    } else {
+      setTimeout(() => setStartAnimation(false), timeoutValue); // or !startAnimation?
+    }
+    console.log(iterationCount + "2");
+  };
+
+  const calculateaCustomIterationValue = (
     iterationCount: number,
     rate: number
   ) => {
-    const timeoutValue = ((rate * 2) * iterationCount) * 1000;
-    console.log(timeoutValue);
-    setStartAnimation(startAnimation);
-    setAnimationIterationCount(iterationCount);
-    setAnimationRate(rate);
-    setTimeout(() => setStartAnimation(false), timeoutValue); // or !startAnimation?
+    const value = (Number(iterationCount) * 60) / (rate * 2);
+    return iterationCount == 0 ? "infinite" : value;
   };
 
-  const calculateaCustomIterationValue = (iterationCount: number, rate: number) => {
-    const value = (Number(iterationCount) * 60) / (rate * 2);
-    return iterationCount ==  0 ? "infinite" : value;
-    
-};
-
   // rate = breathing rate eg. 5.5 seconds multiplied by 2 to get entire animation time
-  // iterationCount is the amount of times the animation should run eg. X * rate 
+  // iterationCount = amount of times the animation should run eg. X * rate
   const setCustomAnimationParams = (
     startAnimation: boolean,
     customIterationCount: number,
     rate: number
   ) => {
     const t = calculateaCustomIterationValue(customIterationCount, rate);
-    const timeoutValue = ((customIterationCount * 60) *(rate * 2)) * 100;
+    const timeoutValue = customIterationCount * 60 * (rate * 2) * 100;
     console.log(timeoutValue);
     setStartAnimation(startAnimation);
-    setAnimationIterationCount(calculateaCustomIterationValue(customIterationCount, rate));
+    setAnimationIterationCount(
+      calculateaCustomIterationValue(customIterationCount, rate)
+    );
     setAnimationRate(rate);
     setTimeout(() => setStartAnimation(false), timeoutValue); // or !startAnimation
   };
@@ -97,51 +112,86 @@ export default function ControlPanel() {
           active={active === "btn2"}
         />
         <Information onClick={() => setOpenModal(true)}>
-          <BsFillInfoCircleFill size="20px"/>
+          <BsFillInfoCircleFill size="20px" />
         </Information>
       </ButtonGroup>
 
+      {/* Dynamically create preset buttons? */}
       <QuickStartPresets $visible={showDefaultPresetSettings}>
-        <Button
-          text="Continuous"
-          disabled={startAnimation}
-          onClick={() =>
-            setPresetAnimationParams(!startAnimation, 0, FIVE_POINT_FIVE_SECONDS)
-          }
-          variant="primary"
-        />
-        <Button
-          text="1 Min"
-          disabled={startAnimation}
-          onClick={() =>
-            setPresetAnimationParams(!startAnimation, 6, FIVE_POINT_FIVE_SECONDS)
-          }
-          variant="primary"
-        />
-        <Button
-          text="2 Mins"
-          disabled={startAnimation}
-          onClick={() =>
-            setPresetAnimationParams(!startAnimation, 12, FIVE_POINT_FIVE_SECONDS)
-          }
-          variant="primary"
-        />
-        <Button
-          text="5 Mins"
-          disabled={startAnimation}
-          onClick={() =>
-            setPresetAnimationParams(!startAnimation, 55, FIVE_POINT_FIVE_SECONDS)
-          }
-          variant="primary"
-        />
-        <Button
-          text="10 Mins"
-          disabled={startAnimation}
-          onClick={() =>
-            setPresetAnimationParams(!startAnimation, 110, FIVE_POINT_FIVE_SECONDS)
-          }
-          variant="primary"
-        />
+        <ResponsiveButtonContainer>
+          <Button
+            text="Continuous"
+            disabled={startAnimation}
+            onClick={() =>
+              setPresetAnimationParams(
+                !startAnimation,
+                "infinite",
+                FIVE_POINT_FIVE_SECONDS
+              )
+            }
+            variant="primary"
+          />
+        </ResponsiveButtonContainer>
+
+        <ResponsiveButtonContainer>
+          <Button
+            text="1 Min"
+            disabled={startAnimation}
+            onClick={() =>
+              setPresetAnimationParams(
+                !startAnimation,
+                6,
+                FIVE_POINT_FIVE_SECONDS
+              )
+            }
+            variant="primary"
+          />
+        </ResponsiveButtonContainer>
+
+        <ResponsiveButtonContainer>
+          <Button
+            text="2 Mins"
+            disabled={startAnimation}
+            onClick={() =>
+              setPresetAnimationParams(
+                !startAnimation,
+                12,
+                FIVE_POINT_FIVE_SECONDS
+              )
+            }
+            variant="primary"
+          />
+        </ResponsiveButtonContainer>
+
+        <ResponsiveButtonContainer>
+          <Button
+            text="5 Mins"
+            disabled={startAnimation}
+            onClick={() =>
+              setPresetAnimationParams(
+                !startAnimation,
+                55,
+                FIVE_POINT_FIVE_SECONDS
+              )
+            }
+            variant="primary"
+          />
+        </ResponsiveButtonContainer>
+
+        <ResponsiveButtonContainer>
+          <Button
+            text="10 Mins"
+            disabled={startAnimation}
+            onClick={() =>
+              setPresetAnimationParams(
+                !startAnimation,
+                110,
+                FIVE_POINT_FIVE_SECONDS
+              )
+            }
+            variant="primary"
+          />
+        </ResponsiveButtonContainer>
       </QuickStartPresets>
 
       <CustomSettings $visible={!showDefaultPresetSettings}>
@@ -154,21 +204,21 @@ export default function ControlPanel() {
               onChange={(e) => setAnimationRate(FOUR_POINT_FIVE_SECONDS)}
               checked={animationRate === FOUR_POINT_FIVE_SECONDS}
             />
-            <label htmlFor="4.5">4.5 seconds</label>
+            <Label htmlFor="4.5">4.5 seconds</Label>
             <input
               type="radio"
               id="5.5"
               onChange={(e) => setAnimationRate(FIVE_POINT_FIVE_SECONDS)}
               checked={animationRate === FIVE_POINT_FIVE_SECONDS}
             />
-            <label htmlFor="5.5">5.5 seconds</label>
+            <Label htmlFor="5.5">5.5 seconds</Label>
             <input
               type="radio"
               id="6.5"
               onChange={(e) => setAnimationRate(SIX_POINT_FIVE_SECONDS)}
               checked={animationRate === SIX_POINT_FIVE_SECONDS}
             />
-            <label htmlFor="6.5">6.5 seconds</label>
+            <Label htmlFor="6.5">6.5 seconds</Label>
           </Inputs>
         </SettingContainer>
 
@@ -185,18 +235,20 @@ export default function ControlPanel() {
           </Inputs>
         </SettingContainer>
 
-        <Button
-          text="start"
-          disabled={startAnimation || customIterationCount <= 0}
-          onClick={() =>
-            setCustomAnimationParams(
-              !startAnimation,
-              customIterationCount,
-              animationRate
-            )
-          }
-          variant="primary"
-        />
+        <ResponsiveButtonContainer>
+          <Button
+            text="start"
+            disabled={startAnimation || customIterationCount <= 0}
+            onClick={() =>
+              setCustomAnimationParams(
+                !startAnimation,
+                customIterationCount,
+                animationRate
+              )
+            }
+            variant="primary"
+          />
+        </ResponsiveButtonContainer>
       </CustomSettings>
 
       <Button
