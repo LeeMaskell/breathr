@@ -19,6 +19,7 @@ import {
 import ButtonGroup from "@/components/LayoutComponents/ButtonGroup/ButtonGroup";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import styled from "styled-components";
+import { Anybody } from "next/font/google";
 
 const ResponsiveButtonContainer = styled.div`
   width: 8.125rem;
@@ -94,6 +95,54 @@ export default function ControlPanel() {
     setActive(activeButton);
   };
 
+  // Move this to a better location
+  const quickstartButtons = [
+    {
+      id: 1,
+      text: "Continuous",
+      onClick: () =>
+        setPresetAnimationParams(
+          !startAnimation,
+          "infinite",
+          FIVE_POINT_FIVE_SECONDS
+        ),
+      variant: "primary",
+      disabled: startAnimation,
+    },
+    {
+      id: 1,
+      text: "1 Min",
+      onClick: () =>
+        setPresetAnimationParams(!startAnimation, 6, FIVE_POINT_FIVE_SECONDS),
+      variant: "primary",
+      disabled: startAnimation,
+    },
+    {
+      id: 1,
+      text: "2 Mins",
+      onClick: () =>
+        setPresetAnimationParams(!startAnimation, 12, FIVE_POINT_FIVE_SECONDS),
+      variant: "primary",
+      disabled: startAnimation,
+    },
+    {
+      id: 1,
+      text: "5 Mins",
+      onClick: () =>
+        setPresetAnimationParams(!startAnimation, 55, FIVE_POINT_FIVE_SECONDS),
+      variant: "primary",
+      disabled: startAnimation,
+    },
+    {
+      id: 1,
+      text: "10 Mins",
+      onClick: () =>
+        setPresetAnimationParams(!startAnimation, 110, FIVE_POINT_FIVE_SECONDS),
+      variant: "primary",
+      disabled: startAnimation,
+    },
+  ];
+
   return (
     <ControlPanelContainer>
       <ButtonGroup>
@@ -116,82 +165,19 @@ export default function ControlPanel() {
         </Information>
       </ButtonGroup>
 
-      {/* Dynamically create preset buttons? */}
       <QuickStartPresets $visible={showDefaultPresetSettings}>
-        <ResponsiveButtonContainer>
-          <Button
-            text="Continuous"
-            disabled={startAnimation}
-            onClick={() =>
-              setPresetAnimationParams(
-                !startAnimation,
-                "infinite",
-                FIVE_POINT_FIVE_SECONDS
-              )
-            }
-            variant="primary"
-          />
-        </ResponsiveButtonContainer>
-
-        <ResponsiveButtonContainer>
-          <Button
-            text="1 Min"
-            disabled={startAnimation}
-            onClick={() =>
-              setPresetAnimationParams(
-                !startAnimation,
-                6,
-                FIVE_POINT_FIVE_SECONDS
-              )
-            }
-            variant="primary"
-          />
-        </ResponsiveButtonContainer>
-
-        <ResponsiveButtonContainer>
-          <Button
-            text="2 Mins"
-            disabled={startAnimation}
-            onClick={() =>
-              setPresetAnimationParams(
-                !startAnimation,
-                12,
-                FIVE_POINT_FIVE_SECONDS
-              )
-            }
-            variant="primary"
-          />
-        </ResponsiveButtonContainer>
-
-        <ResponsiveButtonContainer>
-          <Button
-            text="5 Mins"
-            disabled={startAnimation}
-            onClick={() =>
-              setPresetAnimationParams(
-                !startAnimation,
-                55,
-                FIVE_POINT_FIVE_SECONDS
-              )
-            }
-            variant="primary"
-          />
-        </ResponsiveButtonContainer>
-
-        <ResponsiveButtonContainer>
-          <Button
-            text="10 Mins"
-            disabled={startAnimation}
-            onClick={() =>
-              setPresetAnimationParams(
-                !startAnimation,
-                110,
-                FIVE_POINT_FIVE_SECONDS
-              )
-            }
-            variant="primary"
-          />
-        </ResponsiveButtonContainer>
+        {quickstartButtons.map((b) => {
+          return (
+            <ResponsiveButtonContainer key={b.id}>
+              <Button
+                text={b.text}
+                onClick={b.onClick}
+                variant={b.variant}
+                disabled={b.disabled}
+              />
+            </ResponsiveButtonContainer>
+          );
+        })}
       </QuickStartPresets>
 
       <CustomSettings $visible={!showDefaultPresetSettings}>
