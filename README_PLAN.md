@@ -31,8 +31,6 @@ https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts
 https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame
 
 3/7/24
-- Dynamically create quickstart buttons
-- Test
 - Style and form Modal correctly
 - Add Modal content
 - Add scroll up functionality to preset button in mobile view

@@ -19,7 +19,6 @@ import {
 import ButtonGroup from "@/components/LayoutComponents/ButtonGroup/ButtonGroup";
 import { BsFillInfoCircleFill } from "react-icons/bs";
 import styled from "styled-components";
-import { Anybody } from "next/font/google";
 
 const ResponsiveButtonContainer = styled.div`
   width: 8.125rem;
@@ -54,7 +53,6 @@ export default function ControlPanel() {
     const timeoutValue = rate * 2 * iterationCount * 1000;
     setStartAnimation(startAnimation);
     setAnimationIterationCount(iterationCount);
-    console.log(iterationCount + "1");
     setAnimationRate(rate);
     if (iterationCount === "infinite") {
       return;
@@ -81,7 +79,6 @@ export default function ControlPanel() {
   ) => {
     const t = calculateaCustomIterationValue(customIterationCount, rate);
     const timeoutValue = customIterationCount * 60 * (rate * 2) * 100;
-    console.log(timeoutValue);
     setStartAnimation(startAnimation);
     setAnimationIterationCount(
       calculateaCustomIterationValue(customIterationCount, rate)
@@ -106,40 +103,30 @@ export default function ControlPanel() {
           "infinite",
           FIVE_POINT_FIVE_SECONDS
         ),
-      variant: "primary",
-      disabled: startAnimation,
     },
     {
-      id: 1,
+      id: 2,
       text: "1 Min",
       onClick: () =>
         setPresetAnimationParams(!startAnimation, 6, FIVE_POINT_FIVE_SECONDS),
-      variant: "primary",
-      disabled: startAnimation,
     },
     {
-      id: 1,
+      id: 3,
       text: "2 Mins",
       onClick: () =>
         setPresetAnimationParams(!startAnimation, 12, FIVE_POINT_FIVE_SECONDS),
-      variant: "primary",
-      disabled: startAnimation,
     },
     {
-      id: 1,
+      id: 4,
       text: "5 Mins",
       onClick: () =>
         setPresetAnimationParams(!startAnimation, 55, FIVE_POINT_FIVE_SECONDS),
-      variant: "primary",
-      disabled: startAnimation,
     },
     {
-      id: 1,
+      id: 5,
       text: "10 Mins",
       onClick: () =>
         setPresetAnimationParams(!startAnimation, 110, FIVE_POINT_FIVE_SECONDS),
-      variant: "primary",
-      disabled: startAnimation,
     },
   ];
 
@@ -172,8 +159,8 @@ export default function ControlPanel() {
               <Button
                 text={b.text}
                 onClick={b.onClick}
-                variant={b.variant}
-                disabled={b.disabled}
+                variant="primary"
+                disabled={startAnimation}
               />
             </ResponsiveButtonContainer>
           );
