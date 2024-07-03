@@ -20,7 +20,10 @@ export const AnimationContainer = styled.div`
     align-items: center;
     position: relative;
     
-    
+    @media (max-width: 480px) {
+        width: 10rem;
+        height: 4.688rem;
+    }
 `;
 
 export const AnimationShape = styled.div<{$startAnimation: boolean, $animationIterationCount: number | string, $animationRate: number}>`

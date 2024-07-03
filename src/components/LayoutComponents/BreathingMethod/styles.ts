@@ -8,6 +8,7 @@ export const BreathingMethodContainer = styled.div`
     justify-content: center;
     gap: 1.25rem;
     margin: 1.25rem 0 1.875rem 0;
+    padding: 0 1rem;
 `;
 
 export const AnimationContainer = styled.div`
