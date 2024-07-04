@@ -30,7 +30,23 @@ Refer to the advanced React course for best practice.
 https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts
 https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame
 
-3/7/24
-- Style and form Modal correctly
-- Add Modal content
-- Work out 'cards' and requirements for the next stage of development
+4/7/24
+Add ambient breathing view
+- full screen modal uisng overlays component
+- animated radial gradient (animation speed 5.5 breathing rate continuously)
+- popover/banner = "press F12 for full screen and escape etc" 4 sedond display
+- close 'X' button that shows on when the mouse moves
+
+Basic homepage structure aqnd styling
+- Cards for each breathing method
+- Link button that directs to the page
+- Button that links to 'Ambient' mode
+
+Make an atomic ResponsiveButtonContainer and use in all current locations
+
+Implement type interfaces where there are more than 3 prop types
+
+Decide on the deign for the home page
+
+
+Work out 'cards' and requirements for the next stage of development

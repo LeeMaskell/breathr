@@ -1,31 +1,35 @@
 "use client";
 import { useLayoutEffect, useState } from "react";
-import { Main } from "./styles";
-import Link from "next/link";
+import { Main, LinksContainer } from "./styles";
 import Banner from "@/components/ContainerComponents/Banner/Banner";
+import LinkCard from "@/components/LayoutComponents/LinkCard/LinkCard";
 
 export default function Home() {
   const [showUserConsentBanner, setShowUserConsentBanner] = useState<boolean>(false);
-  
 
   // Do not show the banner if the custom cookie is present.
   useLayoutEffect(() => {
     const doesConsentCookieExist = document.cookie.includes("breathr"); // update cookie naming convention
     setShowUserConsentBanner(!doesConsentCookieExist);
-  }, [])
+  }, []);
+
+  // extract to a better location?
+  const breathingMethods = [
+    {id: 1, href: "resonant-breathing", text: "Resonant Breathing", buttonText: "Ambient", onClick: () => {}},
+    {id: 1, href: "four-seven-eight-breathing", text: "4-7-8 Breathing", buttonText: "", onClick: () => {}},
+    {id: 1, href: "box-breathing", text: "Box Breathing", buttonText: "", onClick: () => {}}
+  ]
 
   return (
     <Main>
-      {showUserConsentBanner && <Banner setShowUserConsentBanner={setShowUserConsentBanner} />}
-      {/* placeholder Link */}
-      <Link href="resonant-breathing">Resonant Breathing
-      </Link>
-      {/* placeholder Link */}
-      <Link href="four-seven-eight-breathing">4-7-8 Breathing
-      </Link>
-      {/* placeholder Link */}
-      <Link href="boxt-breathing">Box Breathing
-      </Link>
+      {showUserConsentBanner && (
+        <Banner setShowUserConsentBanner={setShowUserConsentBanner} />
+      )}
+      <LinksContainer>
+        {breathingMethods.map((method) => 
+          <LinkCard key={method.id} href={method.href} text={method.text} buttonText={method.buttonText} onClick={method.onClick} />
+        )}
+      </LinksContainer>
     </Main>
   );
 }
