@@ -66,7 +66,7 @@ export const Label = styled.label`
     margin-right: 0.625rem;
 `;
 
-export const Information = styled.div`
+export const IconButton = styled.div`
     margin-left: 1rem;
     margin-bottom: 0.188rem;
     cursor: pointer;

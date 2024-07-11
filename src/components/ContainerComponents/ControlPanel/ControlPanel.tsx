@@ -8,16 +8,16 @@ import {
   SettingContainer,
   Inputs,
   Label,
-  Information,
+  IconButton,
 } from "./styles";
-import { useStateContext } from "@/app/library/context";
+import { useStateContext } from "@/app/library/resonantBreathingContext";
 import {
   FOUR_POINT_FIVE_SECONDS,
   FIVE_POINT_FIVE_SECONDS,
   SIX_POINT_FIVE_SECONDS,
 } from "../../../app/library/constants";
 import ButtonGroup from "@/components/LayoutComponents/ButtonGroup/ButtonGroup";
-import { BsFillInfoCircleFill } from "react-icons/bs";
+import { BsFillInfoCircleFill, BsArrowsFullscreen } from "react-icons/bs";
 import styled from "styled-components";
 
 const ResponsiveButtonContainer = styled.div`
@@ -41,6 +41,7 @@ export default function ControlPanel() {
     showDefaultPresetSettings,
     setShowDefaultPresetSettings,
     setOpenModal,
+    setOpenAmbientResonantDisplay
   } = useStateContext();
 
   // Add interface/types for active
@@ -153,9 +154,12 @@ export default function ControlPanel() {
           variant="toggle"
           active={active === "btn2"}
         />
-        <Information onClick={() => setOpenModal(true)}>
+        <IconButton onClick={() => setOpenAmbientResonantDisplay(true)}>
+          <BsArrowsFullscreen size="20px" />
+        </IconButton>
+        <IconButton onClick={() => setOpenModal(true)}>
           <BsFillInfoCircleFill size="20px" />
-        </Information>
+        </IconButton>
       </ButtonGroup>
 
       <QuickStartPresets $visible={showDefaultPresetSettings}>
@@ -236,12 +240,6 @@ export default function ControlPanel() {
         onClick={() => setStartAnimation(false)}
         variant="secondary"
       />
-
-      {/* <Button
-              text="Instructions"
-              variant="secondary"
-              onClick={() => setOpenModal(true)}
-            /> */}
     </ControlPanelContainer>
   );
 }

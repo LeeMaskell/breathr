@@ -15,6 +15,8 @@ interface IContextState {
   setGuideText: (s: string) => void;
   openModal: boolean;
   setOpenModal: (arg0: boolean) => void;
+  openAmbientResonantDisplay: boolean;
+  setOpenAmbientResonantDisplay: (arg0: boolean) => void;
 }
 
 const StateContext = createContext({} as IContextState);
@@ -27,6 +29,7 @@ export default function StateContextWrapper({ children }: any) {
   const [customIterationCount, setCustomIterationCount] = useState<number>(0);
   const [guideText, setGuideText] = useState<string>("");
   const [openModal, setOpenModal] = useState<boolean>(false);
+  const [openAmbientResonantDisplay, setOpenAmbientResonantDisplay] = useState<boolean>(false);
 
   const sharedState: any = {
     startAnimation,
@@ -43,6 +46,8 @@ export default function StateContextWrapper({ children }: any) {
     setGuideText,
     openModal,
     setOpenModal,
+    openAmbientResonantDisplay,
+    setOpenAmbientResonantDisplay,
   };
   return (
     <StateContext.Provider value={sharedState}>

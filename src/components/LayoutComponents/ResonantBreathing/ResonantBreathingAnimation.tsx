@@ -1,6 +1,6 @@
 "use client";
 import React from 'react';
-import { useStateContext } from "../../../app/library/context";
+import { useStateContext } from "../../../app/library/resonantBreathingContext";
 import { AnimationContainer, AnimationShape, AnimationLimit } from './styles';
 
 export default function ResonantBreathingAnimation() {

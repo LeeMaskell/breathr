@@ -15,21 +15,41 @@ export default function Home() {
 
   // extract to a better location?
   const breathingMethods = [
-    {id: 1, href: "resonant-breathing", text: "Resonant Breathing", buttonText: "Ambient", onClick: () => {}},
-    {id: 1, href: "four-seven-eight-breathing", text: "4-7-8 Breathing", buttonText: "", onClick: () => {}},
-    {id: 1, href: "box-breathing", text: "Box Breathing", buttonText: "", onClick: () => {}}
-  ]
+    {
+      id: 1,
+      href: "resonant-breathing",
+      text: "Resonant Breathing",
+      buttonText: "Ambient",
+    },
+    {
+      id: 2,
+      href: "four-seven-eight-breathing",
+      text: "4-7-8 Breathing",
+      buttonText: "",
+    },
+    {
+      id: 3,
+      href: "box-breathing",
+      text: "Box Breathing",
+      buttonText: "",
+    },
+  ];
 
   return (
-    <Main>
-      {showUserConsentBanner && (
-        <Banner setShowUserConsentBanner={setShowUserConsentBanner} />
-      )}
-      <LinksContainer>
-        {breathingMethods.map((method) => 
-          <LinkCard key={method.id} href={method.href} text={method.text} buttonText={method.buttonText} onClick={method.onClick} />
+      <Main>
+        {showUserConsentBanner && (
+          <Banner setShowUserConsentBanner={setShowUserConsentBanner} />
         )}
-      </LinksContainer>
-    </Main>
+        <LinksContainer>
+          {breathingMethods.map((method) => (
+            <LinkCard
+              key={method.id}
+              href={method.href}
+              text={method.text}
+              buttonText={method.buttonText}
+            />
+          ))}
+        </LinksContainer>
+      </Main>
   );
 }

@@ -1,7 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { ModalContainer, ModalContent, ModalTitle, ModalText } from "./styles";
-import { useStateContext } from "@/app/library/context";
+import { useStateContext } from "@/app/library/resonantBreathingContext";
 import Button from "@/components/ContainerComponents/Button/button";
 
 const ResponsiveButtonContainer = styled.div`
@@ -10,7 +10,7 @@ const ResponsiveButtonContainer = styled.div`
 `;
 
 export default function Modal() {
-  const StateContext = useStateContext();
+  const { setOpenModal } = useStateContext();
   return (
     <ModalContainer>
       <ModalContent>
@@ -29,7 +29,7 @@ export default function Modal() {
           <Button
             text="Close Modal"
             variant="primary"
-            onClick={() => StateContext.setOpenModal(false)}
+            onClick={() => setOpenModal(false)}
           />
         </ResponsiveButtonContainer>
       </ModalContent>

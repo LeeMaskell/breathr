@@ -1,52 +1,89 @@
-#Long Term
-Create a user profile modal (needs more thought).
-- local storage.
-Styling and accessibility.
-SEO
-Tooltips (separate component).
+11/7/24
+Order the future cards.
+Atomic responsive layout component.
+Add type interfaces.
 
-Adsavnced and unnecessary features for the sake of coding...
-- load spinner, possibly built into the breathing component.
-- tracking progress, circular progress bar in the user profile modal.
-- backend (node server js?).
-- formData component.
+CARDS
+** Finalise home page styling **
+- Research deisgn ideas.
+- Update current styling.
+
+** Extract data objects to a central location **
+- app/page.tsx breathing methods.
+- ControlPanel.
+
+** Create a layout component **
+- Use for max width on 4k screens.
+- Use for consistent responsive sizing at smaller screen resolutions.
+
+** Make an atomic ResponsiveButtonContainer and use in all current locations **
+- Currently there are 3 iterations of a ResponsiveButtonContainer styled div, create an atomic component that can be used in each location.
+- The component should take size props fro all screen resolutions.
+
+** Navbar **
+- Can be used across all breathing pages (not required in the home page).
+- Include links to all other pages.
+- Include a reset user/cookies consent button to clear cookies consent.
+- Use a burger icon on all page sizes.
+- Clicking the icon should open a side panel that animates into the page from the right.
+
+** Implement type interfaces where there are more than 3 prop types **
+- Check the entire code base for occurences.
+- Decide if the types should live in the .tsx file or if they can be moved to a types.ts file.
+
+** Tooltip component **
+- Review work tooltip.
+- Research accessibility standards for tooltips.
+- Should be atomic.
+- It will need to take a text prop and a position prop.
+- The text prop should have a max length. Text should be shortened to ellipses if the text exceeds the max length.
+- The position prop will position the tooltip to a default location (top) unless it is cut off at the edge of the screen.
+
+** Add an icon button option to the button component
+- Review options/ideas.
+- Use an iconButton variant.
+
+** Button animation styling (icon and regular) **
+- Add a drop shadow to the regular buttons.
+- Animate the buttons on click to appear to move (change colour and size).
+
+** Organise the order of imports **
+- All files should import in a similar order according to import type.
+- Fine the file with the most imports to work out the default order.
+- Replicate the default order in all other files.
+
+** Start planning user info storage **
+- Type of data to store.
+- Methods for adding to local storage.
+- Methods for retrieving data.
+- How to display data (side panel?)
+
+** Make the Overlays component atomic **
+- Pass in the modals to display as props or children.
+- use the componnet in each breathing method.
+
+** Review file structure for components **
+- Is it logical?
+- Are Layout components actually layoiut components?
+- Are container components actually Container components?
+- Is there a better structure that I could use?
+
+** Set up SEO for the page **
+- Review NextJS documentaion for SEO then plan methodology.
+
+** Add text overlay to the ambient display **
+- The text should show once on initial loading and only display for 4 seconds.
+
+** Finalise instructions **
+- Add to the modal.
+- Review modal styling and element spacing. Consider using flex proportions or grid.
 
 
-----------------------------
-Refer to the advanced React course for best practice.
-- style custom settings
-- convert px to rem
-- layout container for max width (4k res etc) and responsive sizing.
-- responsive sizing
-- consistency of CSS
-- consistency of imports
-- create "Ambient Breathing" component with animated gradients
-
-
-// cookies consent/authorization to record user data = sets cookie if approved so that consent doesn't show again.
-// - will need 'clear user data' button and 'clear cookie consent button' (footer?)
-// user data button that opens a modal with user data fetched from local stroage. May need to be in Navbar.
+Advanced and unnecessary features for the sake of coding...
+- Load spinner, possibly built into the breathing component.
+- Tracking progress, circular progress bar in the user profile modal.
+- Backend (node server js?).
+- FormData component.
 
 https://nextjs.org/docs/app/building-your-application/routing/pages-and-layouts
 https://developer.mozilla.org/en-US/docs/Web/API/Window/requestAnimationFrame
-
-4/7/24
-Add ambient breathing view
-- full screen modal uisng overlays component
-- animated radial gradient (animation speed 5.5 breathing rate continuously)
-- popover/banner = "press F12 for full screen and escape etc" 4 sedond display
-- close 'X' button that shows on when the mouse moves
-
-Basic homepage structure aqnd styling
-- Cards for each breathing method
-- Link button that directs to the page
-- Button that links to 'Ambient' mode
-
-Make an atomic ResponsiveButtonContainer and use in all current locations
-
-Implement type interfaces where there are more than 3 prop types
-
-Decide on the deign for the home page
-
-
-Work out 'cards' and requirements for the next stage of development

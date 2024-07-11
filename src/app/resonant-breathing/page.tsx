@@ -1,9 +1,9 @@
 "use client";
-import React, { useEffect, useRef, useState } from "react";
+import React from "react";
 import BreathingMethod from "@/components/LayoutComponents/BreathingMethod/BreathingMethod";
 import ResonantBreathingAnimation from "@/components/LayoutComponents/ResonantBreathing/ResonantBreathingAnimation";
 import Overlays from "@/components/LayoutComponents/Overlays/Overlays";
-import StateContextWrapper, { useStateContext } from "../library/context";
+import StateContextWrapper from "../library/resonantBreathingContext";
 import ControlPanel from "@/components/ContainerComponents/ControlPanel/ControlPanel";
 import GuideText from "@/components/ContainerComponents/GuideText/GuideText";
 import styled from "styled-components";

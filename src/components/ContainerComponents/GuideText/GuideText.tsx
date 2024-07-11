@@ -1,6 +1,6 @@
 import React, { useState, useRef, useEffect, useCallback } from "react";
 import { GuideTextContainer, Text } from "./styles";
-import { useStateContext } from "@/app/library/context";
+import { useStateContext } from "@/app/library/resonantBreathingContext";
 
 // make this component atomic before creating other breathing methods.
 export default function GuideText() {
