@@ -1,6 +1,5 @@
 11/7/24
 Order the future cards.
-Atomic responsive layout component.
 Add type interfaces.
 
 CARDS
@@ -15,10 +14,6 @@ CARDS
 ** Create a layout component **
 - Use for max width on 4k screens.
 - Use for consistent responsive sizing at smaller screen resolutions.
-
-** Make an atomic ResponsiveButtonContainer and use in all current locations **
-- Currently there are 3 iterations of a ResponsiveButtonContainer styled div, create an atomic component that can be used in each location.
-- The component should take size props fro all screen resolutions.
 
 ** Navbar **
 - Can be used across all breathing pages (not required in the home page).

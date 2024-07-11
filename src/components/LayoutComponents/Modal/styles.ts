@@ -24,7 +24,7 @@ export const ModalContent = styled.div`
     width: 30rem;
     height: 30rem;
     z-index: 20;
-    padding: 1rem;
+    padding: 1rem 1rem 2rem 1rem;
     background-color: ${LILAC};
     border: 1px solid ${SKY_BLUE};
 

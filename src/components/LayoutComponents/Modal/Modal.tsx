@@ -1,13 +1,8 @@
 import React from "react";
-import styled from "styled-components";
 import { ModalContainer, ModalContent, ModalTitle, ModalText } from "./styles";
 import { useStateContext } from "@/app/library/resonantBreathingContext";
 import Button from "@/components/ContainerComponents/Button/button";
-
-const ResponsiveButtonContainer = styled.div`
-  width: 8.125rem;
-  margin-bottom: 1rem;
-`;
+import ResponsiveButtonLayout from "../ResponsiveButtonLayout/ResponsiveButtonLayout";
 
 export default function Modal() {
   const { setOpenModal } = useStateContext();
@@ -25,13 +20,13 @@ export default function Modal() {
           pellentesque vulputate. Vestibulum a libero sodales velit porta rutrum
           sit amet eget felis.
         </ModalText>
-        <ResponsiveButtonContainer>
+        <ResponsiveButtonLayout width={8.125} responsiveWidth={8.125}>
           <Button
             text="Close Modal"
             variant="primary"
             onClick={() => setOpenModal(false)}
           />
-        </ResponsiveButtonContainer>
+        </ResponsiveButtonLayout>
       </ModalContent>
     </ModalContainer>
   );

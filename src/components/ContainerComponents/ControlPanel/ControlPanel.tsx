@@ -18,16 +18,7 @@ import {
 } from "../../../app/library/constants";
 import ButtonGroup from "@/components/LayoutComponents/ButtonGroup/ButtonGroup";
 import { BsFillInfoCircleFill, BsArrowsFullscreen } from "react-icons/bs";
-import styled from "styled-components";
-
-const ResponsiveButtonContainer = styled.div`
-  width: 8.125rem;
-
-  @media (max-width: 768px) {
-    width: 100%;
-  }
-`;
-
+import ResponsiveButtonLayout from "@/components/LayoutComponents/ResponsiveButtonLayout/ResponsiveButtonLayout";
 
 export default function ControlPanel() {
   const {
@@ -165,14 +156,14 @@ export default function ControlPanel() {
       <QuickStartPresets $visible={showDefaultPresetSettings}>
         {quickstartButtons.map((b) => {
           return (
-            <ResponsiveButtonContainer key={b.id}>
+            <ResponsiveButtonLayout key={b.id} width={8.125}>
               <Button
                 text={b.text}
                 onClick={b.onClick}
                 variant="primary"
                 disabled={startAnimation}
               />
-            </ResponsiveButtonContainer>
+            </ResponsiveButtonLayout>
           );
         })}
       </QuickStartPresets>
@@ -218,7 +209,7 @@ export default function ControlPanel() {
           </Inputs>
         </SettingContainer>
 
-        <ResponsiveButtonContainer>
+        <ResponsiveButtonLayout width={8.125}>
           <Button
             text="start"
             disabled={startAnimation || customIterationCount <= 0}
@@ -231,7 +222,7 @@ export default function ControlPanel() {
             }
             variant="primary"
           />
-        </ResponsiveButtonContainer>
+        </ResponsiveButtonLayout>
       </CustomSettings>
 
       <Button

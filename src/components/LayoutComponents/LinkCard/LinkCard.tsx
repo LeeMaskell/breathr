@@ -1,8 +1,8 @@
 import React from "react";
 import Link from "next/link";
-import styled from "styled-components";
 import Button from "@/components/ContainerComponents/Button/button";
 import { LinkCardContainer } from "./styles";
+import ResponsiveButtonLayout from "../ResponsiveButtonLayout/ResponsiveButtonLayout";
 
 interface ILinkCardProps {
   href: string;
@@ -10,11 +10,6 @@ interface ILinkCardProps {
   buttonText?: string;
   onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
-
-const ResponsiveButtonContainer = styled.div`
-  width: 8.125rem;
-  margin-top: 1rem;
-`;
 
 export default function LinkCard({
   href,
@@ -26,9 +21,9 @@ export default function LinkCard({
     <LinkCardContainer>
       <Link href={href}>{text}</Link>
       {buttonText && onClick && (
-        <ResponsiveButtonContainer>
+        <ResponsiveButtonLayout width={8.125}>
             <Button text={buttonText} variant="primary" onClick={onClick} />
-        </ResponsiveButtonContainer>
+        </ResponsiveButtonLayout>
       )}
     </LinkCardContainer>
   );
