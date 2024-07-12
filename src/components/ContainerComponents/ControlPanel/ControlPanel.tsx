@@ -90,7 +90,6 @@ export default function ControlPanel() {
     setActive(activeButton);
   };
 
-  // Move this to a better location
   const quickstartButtons = [
     {
       id: 1,

@@ -7,24 +7,15 @@ import ResponsiveButtonLayout from "../ResponsiveButtonLayout/ResponsiveButtonLa
 interface ILinkCardProps {
   href: string;
   text: string;
-  buttonText?: string;
-  onClick?: React.MouseEventHandler<HTMLButtonElement>;
 }
 
 export default function LinkCard({
   href,
-  text,
-  onClick,
-  buttonText,
+  text
 }: ILinkCardProps) {
   return (
     <LinkCardContainer>
       <Link href={href}>{text}</Link>
-      {buttonText && onClick && (
-        <ResponsiveButtonLayout width={8.125}>
-            <Button text={buttonText} variant="primary" onClick={onClick} />
-        </ResponsiveButtonLayout>
-      )}
     </LinkCardContainer>
   );
 }
